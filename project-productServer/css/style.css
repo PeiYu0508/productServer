@@ -1,0 +1,441 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a{
+  text-decoration: none
+}
+
+
+
+
+#wrap {
+  width: 1024px;
+  margin: 0 auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background: #F2F2F2;
+  border: 1px solid #000;
+}
+
+/* menu bar */
+#menu-bar {
+  height: 70px;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 42px;
+}
+#shop-logo {
+  color: #fff;
+  font-size: 24px;
+  line-height: 29px;
+  margin-right: 65px;
+}
+#user {
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  margin-left: 417px;
+}
+#menu-bar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#menu-bar li {
+  width: 80px;
+  height: 70px;
+  color: #9B9B9B;
+  font-size: 16px;
+  line-height: 70px;
+  margin-right: 20px;
+  text-align: center;
+}
+.active {
+  line-height: 66px !important;
+  height: 66px !important;
+  border-bottom: 4px solid #fff;
+  color: #fff !important;
+}
+#content {
+  width: 940px;
+  margin: 30px auto;
+}
+
+.overviewTitle {
+  font-size: 24px;
+}
+
+.overviewData {
+  margin-top: 20px;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dataBlock {
+  width: 300px;
+  height: 138px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px;
+}
+.overviewData p {
+  font-size: 16px;
+  padding: 8px;
+}
+.overviewData .data {
+  font-size: 36px;
+}
+#revenueData {
+  color: #7ED321 
+}
+#costData {
+  color: #D0021B;
+}
+#incomeData {
+  color: #4A90E2;
+}
+
+.overviewActivity {
+  width: 860px;
+  height: 406px;
+  background: #fff;
+  padding: 30px 40px;
+}
+.overviewActivity h2 {
+  font-size: 24px;
+}
+
+.enterData {
+  margin-top: 30px;
+}
+.enterData td {
+  padding: 2px;
+}
+.enterData input {
+  width: 60px;
+  height: 20px;
+  text-align: right;
+}
+#update, #random {
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 100px;
+  margin-top: 15px;
+}
+#update {
+  background:	#E6E6F2;
+  margin-left: 750px;
+}
+#random {
+  background:#D1E9E9;
+  margin-left: 20px;
+}
+
+/* PRODUCT page */
+#addProductBtn {
+  width: 192px;
+  height: 34px;
+  background: #000;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 18px;
+  font-weight: bold;
+  margin-left: 748px;
+  margin-bottom: 15px;
+}
+.productList {
+  width: 940px;
+}
+.product td {
+  padding: 0 28px;
+  border: 1px solid #000;
+}
+.productList th {
+  height: 40px;
+  background: #fff;
+  line-height: 40px;
+  border: 1px solid #000;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.productDiv img {
+  width: 100px;
+  margin-right: 8px;
+  margin-top: 10px;
+}
+.originalDiv {
+  display: flex;
+  flex-direction: row;
+  
+}
+.size {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #fff;
+  margin-bottom: 20px;
+}
+.sizeVal {
+  width: 70px;
+  line-height: 20px;
+}
+.color {
+  width: 100px;
+  margin-left: 40px;
+  line-height: 20px;
+}
+.inv {
+  width: 50px;
+  padding-right: 10px;
+  margin-left: 40px;
+  line-height: 20px;
+  text-align: right;
+}
+#status {
+  width: 136px;
+  height: 34px;
+  background: #303030 ;
+  color: #fff;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-top: 30px;
+}
+.del {
+  width: 136px;
+  height: 34px;
+  background: rgb(179, 56, 56);
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.cover {
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(39, 39, 39, 0.541); 
+  display: none;
+}
+
+.addNewProduct {
+  width: 950px;
+  background: #fff;
+  position: fixed;
+  top: 60px;
+  left: 160px;
+  border-radius: 10px;
+  display: none;
+}
+.addNewProduct .title {
+  background: #000;
+  width: 890px;
+  height: 64px;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  font-size: 24px;
+}
+#image_upload_preview {
+  width: 200px;
+  margin-top: 30px;
+}
+.addContent {
+  height: 350px;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px 50px;
+  overflow:scroll;
+}
+/* Product Discription */
+.discription {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+}
+.discription p, .discription input, .discription textarea {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 22px;
+}
+.discription input, .discription textarea {
+  padding-left: 10px;
+}
+.discription input {
+  height: 38px;
+}
+
+/* Price */
+.enterPriceBlock {
+  display: flex;
+  flex-direction: row;
+}
+.priceTitle {
+  margin: 10px 0 8px 0;
+}
+.enterPrice, .enterDiscount {
+  display: flex;
+  margin-right: 8px;
+}
+.enterPriceBlock p {
+  width: 100px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 16px;
+  color: #55595C;
+  background: #EBEBEB;
+  border: 2px solid #CCCCCC;
+  border-radius: 5px 0 0 5px;
+}
+.enterPriceBlock input {
+  width: 100px;
+  border: 2px solid #CCCCCC;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  padding: 0 8px;
+  font-size: 16px;
+}
+
+/* Specification */
+.specificationTitle {
+  margin: 20px 0 8px 0;
+}
+.enterSpecificationBlock {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+.enterSize, .enterColor, .enterInventory {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+}
+.enterSpecificationBlock p {
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 16px;
+  color: #55595C;
+  background: #EBEBEB;
+  border: 2px solid #CCCCCC;
+  border-radius: 5px 0 0 5px;
+}
+.enterSpecificationBlock input, .enterSpecificationBlock select {
+  border: 2px solid #CCCCCC;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  padding: 0 8px;
+  font-size: 16px;
+}
+.enterSize p, .enterSize select{
+  width: 60px;
+}
+.enterColor p {
+  width: 70px;
+}
+.enterColor input {
+  width: 80px;
+}
+.enterInventory p, .enterInventory input{
+  width: 90px;
+}
+
+.addSpecBtn {
+  width: 520px;
+  height: 38px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin:10px 0;
+}
+
+/* btns */
+.btns {
+  margin-left: 290px;
+}
+.btns button {
+  width: 103px;
+  height: 34px;
+  
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.publishBtn {
+  background: #000;
+  color: #fff;
+  border: 2px solid #000000;
+}
+.cancelBtn {
+  color: #55595C;
+  background: #EBEBEB;
+  border: 2px solid #b8b4b4;
+}

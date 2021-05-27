@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>practice-productServer</title>
+
+	<!-- my css -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- font awesome css -->
+	<link rel="stylesheet" href="css/all.min.css">
+
+	<!-- jQuery -->
+	<script src="js/jquery-3.6.0.js"></script>
+	<script src="js/all.js"></script>
+	
+</head>
+<body>
+	<div id="wrap">
+		
+		<div id="menu-bar">
+			<p id="shop-logo">Shoptime</p>
+			<ul>''
+				<li  @click="currentView = 'home'" :class="{active: currentView=='home'}">HOME</li>
+				<li @click="currentView = 'orders'" :class="{active: currentView=='orders'}">ORDERS</li>
+				<li @click="currentView = 'product'" :class="{active: currentView=='product'}">PRODUCT</li>
+			</ul>
+			<p id="user">ADMIN</p>
+		</div>
+		<div id="content">
+			<!-- 使用keep-alive就可保留其狀態 -->
+			<!-- 可觀察count次數，不會因為換channel就歸零 -->
+			<keep-alive>
+				<!-- :is為動態元件替換 -->
+				<component :is="currentView"></component>
+			</keep-alive>
+		</div>
+
+	</div>
+
+	<template id="home-template">
+		<div class="home">
+			<h1 class="overviewTitle">OVERVIEW</h1>
+			<div class="overviewData">
+				<div class="dataBlock" id="totalRevenue">
+					<p><i class="fas fa-hand-holding-usd"></i> TOTAL REVENUE</p>
+					<p class=data id="revenueData">0</p>
+				</div>
+				<div class="dataBlock" id="totalCost">
+					<p><i class="fas fa-boxes"></i> TOTAL COST</p>
+					<p class=data id="costData">0</p>
+				</div>
+				<div class="dataBlock" id="netIncom">
+					<p><i class="fas fa-money-bill"></i> NET INCOME</p>
+					<p class=data id="incomeData">0</p>
+				</div>
+			</div>
+
+			<div class="overviewActivity">
+				<h2>Activity</h2>
+				<div class="chart-view">
+					<canvas id="myChart" width="9" height="4"></canvas>
+				</div>
+			</div>
+			
+			<div class="enterData">
+				<table>
+					<tr>
+						<th></th>
+						<th>Jan.</th>
+						<th>Feb.</th>
+						<th>Mar.</th>
+						<th>Apr.</th>
+						<th>May.</th>
+						<th>June.</th>
+						<th>July.</th>
+						<th>Aug.</th>
+						<th>Sep.</th>
+						<th>Oct.</th>
+						<th>Nov.</th>
+						<th>Dec.</th>
+					</tr>
+					<tr>
+						<td>Revenue</td>
+						<td><input type="number" id="r1"></td>
+						<td><input type="number" id="r2"></td>
+						<td><input type="number" id="r3"></td>
+						<td><input type="number" id="r4"></td>
+						<td><input type="number" id="r5"></td>
+						<td><input type="number" id="r6"></td>
+						<td><input type="number" id="r7"></td>
+						<td><input type="number" id="r8"></td>
+						<td><input type="number" id="r9"></td>
+						<td><input type="number" id="r10"></td>
+						<td><input type="number" id="r11"></td>
+						<td><input type="number" id="r12"></td>
+
+					</tr>
+					
+					<tr>
+						<td>Cost</td>
+						<td><input type="number" id="c1"></td>
+						<td><input type="number" id="c2"></td>
+						<td><input type="number" id="c3"></td>
+						<td><input type="number" id="c4"></td>
+						<td><input type="number" id="c5"></td>
+						<td><input type="number" id="c6"></td>
+						<td><input type="number" id="c7"></td>
+						<td><input type="number" id="c8"></td>
+						<td><input type="number" id="c9"></td>
+						<td><input type="number" id="c10"></td>
+						<td><input type="number" id="c11"></td>
+						<td><input type="number" id="c12"></td>
+					</tr>
+
+					<tr>
+						<td>Net income</td>
+						<td><input type="number" id="n1"></td>
+						<td><input type="number" id="n2"></td>
+						<td><input type="number" id="n3"></td>
+						<td><input type="number" id="n4"></td>
+						<td><input type="number" id="n5"></td>
+						<td><input type="number" id="n6"></td>
+						<td><input type="number" id="n7"></td>
+						<td><input type="number" id="n8"></td>
+						<td><input type="number" id="n9"></td>
+						<td><input type="number" id="n10"></td>
+						<td><input type="number" id="n11"></td>
+						<td><input type="number" id="n12"></td>
+					</tr>
+				</table>
+				<input type="button" id="update" value="Update">
+				<input type="button" id="random" value="Random">
+			</div>
+			
+		</div>
+	</template>
+	<template id="orders-template">
+		<div class="channel">
+			<h2>Channel 2</h2>
+			<p>我是channel-2</p>
+			<p>點擊此頁面次數：{{count}}</p>
+		</div>
+	</template>
+	<template id="product-template">
+		<div class="productPage">
+			<button id="addProductBtn" v-on:click="addNewProductClick()">ADD NEW PRODUCT +</button>
+			<div class="productList">
+				<table id="list">
+					<thead>
+						<tr>
+							<th width="140">Product</th>
+							<th width="100">Original</th>
+							<th width="100">Discount</th>
+							<th width="70">Size</th>
+							<th width="100">Color</th>
+							<th width="70">Inventory</th> 
+							<th width="80">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="product">
+							<td>
+								<div class="productDiv">
+									<p>Product - 1</p>
+									<img src="images/product1.jpg" id="productImg">
+								</div>
+							</td>
+							<td>
+								<div calss="originalDiv">
+									<p>$3,200</p>
+								</div>
+							</td>
+							<td class="discountCol">
+								<p>$2,800</p>
+							</td>
+							<td colspan="3">
+								<div class="sizes">
+									<div class="size">
+										<p class="sizeVal">L</p>
+										<div class="color">
+											<p>Gray</p>
+											<p>Black</p>
+										</div>
+										<div class="inv">
+											<p>150</p>
+											<p>120</p>
+										</div>
+									</div>
+									<div class="size">
+										<p class="sizeVal">M</p>
+										<div class="color">
+											<p>Gray</p>
+											<p>Black</p>
+										</div> 
+										<div class="inv">
+											<p>15</p>
+											<p>20</p>
+										</div>
+									</div>
+									<div class='size'> 
+										<p class="sizeVal">S</p>
+										<div class="color">
+											<p>Gray</p>
+											<p>Black</p>
+										</div>
+										<div class="inv">
+											<p>15</p>
+											<p>20</p>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td>
+								<select name="" id="status">
+									<option value="PUBLISHED">PUBLISHED</option>
+									<option value="UNPUBLISHED">UNPUBLISHED</option>
+								</select>
+								<button class="del" v-on:click.capture="deleteProduct()">DELETE</button>
+							</td>
+						</tr>
+					</tbody>
+					<tbody class="productN">
+					</tbody>
+				</table>
+			</div>
+
+			<div class="cover"></div>
+
+			<div class="addNewProduct">
+				<div class="title">
+					<p>ADD NEW PRODUCT</p>
+					<i class="fas fa-times" id="closeBtn" v-on:click="close()"></i>
+				</div>
+				<div class="addContent">
+					<div class="uploadFile">
+						<input type="file" name="" id="imgFile" accept="image/*" @change="previewImg">
+						<img alt="" id="image_upload_preview" v-if="imgUrl" :src="imgUrl">
+					</div>
+					<div class="inputInfo">
+						<div class="discription">
+							<p>Product Discription</p>
+							<input id="disTitle" type="text" placeholder="Title">
+							<textarea name="" id="" cols="30" rows="6" placeholder="Discription"></textarea>
+						</div>
+						<div class="price">
+							<p class="priceTitle">Price</p>
+							<div class="enterPriceBlock">
+								<div class="enterPrice">
+									<p>Original</p>
+									<input type="text" id="myPrice">
+								</div>
+								<div class="enterDiscount">
+									<p>Discount</p>
+									<input type="text" id="myDiscount">
+								</div>
+							</div>
+						</div>
+						<div class="specification">
+							<p class="specificationTitle">Specification</p>
+							<div class="specificationList"></div>
+								<div class="enterSpecificationBlock">
+									<div class="enterSize">
+										<p>Size</p>
+										<select name="" id="sizeVal">
+											<option value="L">L</option>
+											<option value="M">M</option>
+											<option value="S">S</option>
+										</select>
+									</div>
+									<div class="enterColor">
+										<p>Color</p>
+										<input type="text" id="myColor">
+									</div>
+									<div class="enterInventory">
+										<p>Inventory</p>
+										<input type="number" id="myInventory">
+									</div>
+								</div>
+								<div class="enterSpecificationBlockN"></div>
+							</div>
+							<button class="addSpecBtn" v-on:click="addSpecification()">ADD NEW SPECIFICATION +</button>
+							<div class="btns">
+								<button class="cancelBtn" v-on:click="close()">CANCEL</button>
+								<button class="publishBtn" v-on:click="addProduct()">PUBLISH</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		
+	</template>
+
+	
+	<!-- vue.js -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<!-- chart.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.1/chart.min.js"></script>
+
+</body>
+</html>
