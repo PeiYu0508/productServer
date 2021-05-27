@@ -1,6 +1,6 @@
 # Product Server
 
-## HOME(產品營收資料)
+## HOME(產品營收資料)[該圖表使用Chart.js]
 ![home](https://user-images.githubusercontent.com/35896436/119863978-bdf06480-bf4c-11eb-979a-1bd12b39a7a2.png)
 ![home-update](https://user-images.githubusercontent.com/35896436/119863882-a3b68680-bf4c-11eb-8c9c-b1a22034dbdc.png)
 ![home-showData](https://user-images.githubusercontent.com/35896436/119863898-a7e2a400-bf4c-11eb-86f4-11c9f0a10f64.png)
